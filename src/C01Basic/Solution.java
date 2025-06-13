@@ -1,41 +1,26 @@
-package C01Basic;
+import java.util.Arrays;
 
 class Solution {
-    public int solution(String A, String B) {
-        int answer = 0;
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = new int[commands[0].length];
 
-        if(A.equals(B)) {
-            return 0;
-        }
-        String temp = A;
-        for(int i = 0 ; i <= A.length() ; i++) {
-            temp = move(temp);
-            if(temp.equals(B)) {
-                return 1;
-            } else {
-                if(i == A.length()) {
-                    return -1;
-                }
+        for(int i = 0 ; i < commands.length ; i++) {
+            int a = commands[i][0];
+            int b = commands[i][1];
+            int c = commands[i][2];
+
+            int[] arr = new int[b-a+1];
+
+            for(int j = 0 ; j < arr.lengh ; j++) {
+                arr[i] = commands[i][j+a-1]
             }
+            System.out.println(Arrays.toString(arr[i]));
         }
+
+
+
+
 
         return answer;
     }
-
-
-    static String move(String str) {
-        // 맨 뒤 가져와서
-        char c = str.charAt(str.length()-1);
-
-        // 자른거
-        String sub = str.substring(0, str.length()-1);
-
-        // 앞에 붙이기
-        StringBuilder sb = new StringBuilder();
-        sb.append(c);
-        sb.append(sub);
-
-        return String.valueOf(sb);
-    }
 }
-

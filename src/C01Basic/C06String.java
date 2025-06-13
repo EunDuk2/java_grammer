@@ -169,7 +169,7 @@ public class C06String {
 //        System.out.println(Arrays.toString(arr));
 
 //        String st1 = null; // null은 String이 아님
-//        String st2 = ""; // 공백은 문자열
+//        String st2 = ""; // 빈문자열은 문자열
 //        String st3 = " ";
 //        System.out.println(st1 == st2); // false
 ////        System.out.println(st1.isEmpty()); // NullPointerException
