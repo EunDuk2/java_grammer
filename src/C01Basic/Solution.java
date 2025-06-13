@@ -1,25 +1,20 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 class Solution {
-    public int[] solution(int[] array, int[][] commands) {
-        int[] answer = new int[commands[0].length];
+    public int[] solution(int n, int[] numlist) {
+        List<Integer> list = new ArrayList<>();
 
-        for(int i = 0 ; i < commands.length ; i++) {
-            int a = commands[i][0];
-            int b = commands[i][1];
-            int c = commands[i][2];
-
-            int[] arr = new int[b-a+1];
-
-            for(int j = 0 ; j < arr.lengh ; j++) {
-                arr[i] = commands[i][j+a-1]
+        for(int i = 0 ; i < numlist.length ; i++) {
+            if(numlist[i] % n == 0) {
+                list.add(numlist[i]);
             }
-            System.out.println(Arrays.toString(arr[i]));
         }
 
-
-
-
+        int[] answer = new int[list.size()];
+        for(int i = 0 ; i < list.size() ; i++) {
+            answer[i] = list.get(i);
+        }
 
         return answer;
     }
