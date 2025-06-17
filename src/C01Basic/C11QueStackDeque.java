@@ -1,8 +1,6 @@
 package C01Basic;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class C11QueStackDeque {
@@ -68,6 +66,57 @@ public class C11QueStackDeque {
 //        blockingQueue.offer("문서4");
 //        System.out.println(blockingQueue);
 
-        // 우선 순위 큐
+//        // 우선 순위 큐 : 데이터를 poll할 때 정렬된 데이터 결과값 보장
+//        // 전체 데이터가 계속해서 변경되면서 지속적으로 최소값을 추출해야 하는 경우
+//        Queue<Integer> pq = new PriorityQueue<>();
+//        pq.add(30);
+//        pq.add(20);
+//        pq.add(10);
+//        pq.add(40);
+//        pq.add(50);
+//        while(!pq.isEmpty()) {
+//            // 1개씩 poll할 때마다 최소값을 뽑아낸다.
+//            System.out.println(pq.poll()); // 뽑을 때 복잡도 LogN // 다 뽑는건 정렬된 결과라서 NLogN
+//            // add할 때 까지는 전체 정렬이 안 된 상태.
+//        }
+        
+//        // 최소 힙 - 백준
+//
+//        // 최대 힙
+//        Queue<Integer> pq2 = new PriorityQueue<>(Comparator.reverseOrder());
+//        pq2.add(30);
+//        pq2.add(20);
+//        pq2.add(10);
+//        pq2.add(40);
+//        pq2.add(50);
+//        while(!pq2.isEmpty()) {
+//            System.out.println(pq2.poll());
+//        }
+
+        // 프로그래머스 - 더 맵게
+
+        // stack : 후입 선출
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(10);
+//        stack.push(20);
+//        stack.push(30);
+//
+//        System.out.println(stack.pop()); // 제거되면서 값 Return
+//        System.out.println(stack.peek()); // 값만 Return
+//        System.out.println(stack.size());
+//        System.out.println(stack.isEmpty());
+
+        // 같은 숫자는 싫어 - 프로그래머스
+        // 올바른 괄호 - 프로그래머스
+
+        // deque : addFirst, addLast, pollLast, pollFirst, peekFirst, peekLast
+        Deque<Integer> d1 = new ArrayDeque<>();
+        d1.addLast(10);
+        d1.addLast(20);
+        d1.addFirst(30);
+
+        System.out.println(d1.pollLast()); // 20
+        System.out.println(d1.pollFirst()); // 30
+        System.out.println(d1.peekLast()); // 10
     }
 }
