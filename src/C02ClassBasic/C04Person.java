@@ -56,5 +56,15 @@ public class C04Person {
         return "이름은: " + name + " 이메일은: " + email + " 나이는: " + age;
 //        System.out.println("이름은: " + name + " 이메일은: " + email + " 나이는: " + age);
     }
+    // 객체 메서드들끼리의 호출은 객체가 만들어졌다라는 것을 가정하고 있으므로, 문제없이 호출 가능
+    public String printPerson2() {
+        String temp = this.printPerson();
+        return temp;
+    }
 
+    // 클래스 메서드는 기본적으로 객체 생성을 가정하지 않으므로, 클래스 메서드 내에서 객체 메서드를 호출하는 것은 논리적 모순.
+    public static String printPerson3() {
+//        String temp = this.printPerson() // 불가능
+        return null;
+    }
 }
