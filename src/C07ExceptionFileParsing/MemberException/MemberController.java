@@ -1,6 +1,7 @@
 package C07ExceptionFileParsing.MemberException;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 // 사용자의 입력을 처리하여 출력하는 계층 (상호작용)
@@ -23,12 +24,8 @@ public class MemberController {
                 // 예외 발생 시, 적절한 문구를 사용자에게 출력.
                 try {
                     memberService.register(name, email, password);
-                } catch (MemberException e) {
-                    if(e.getErrorCode() == MemberErrorCode.EMAIL_ALREADY_EXISTS) {
-                        System.out.println("이메일이 중복되었습니다.");
-                    } else if(e.getErrorCode() == MemberErrorCode.INVALID_PASSWORD) {
-                        System.out.println("잘못된 비밀번호입니다.");
-                    }
+                } catch (IllegalStateException | IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
                 }
             } else if(input.equals("2")) {
                 // 회원 정보 출력 (id받아서)
@@ -39,10 +36,8 @@ public class MemberController {
                 try {
                     Member member = memberService.findById(inputId);
                     System.out.println(member.toString());
-                } catch (MemberException e) {
-                    if(e.getErrorCode() == MemberErrorCode.MEMBER_NOT_FOUND) {
-                        System.out.println("존재하지 않는 계정입니다.");
-                    }
+                } catch (NoSuchElementException e) {
+                    System.out.println(e.getMessage());
                 }
 
             } else if(input.equals("3")) {
