@@ -14,12 +14,14 @@ public class MemberRepository {
 
     // 회원 상세조회
     public static Optional<Member> findById(Long id) {
-        for (Member member : memberList) {
-            if (member.getId().equals(id)) {
-                return Optional.of(member);
-            }
-        }
-        return Optional.empty();
+        Optional<Member> member = memberList.stream().filter(a -> a.getId() == id).findFirst();
+        return member;
+//        for (Member member : memberList) {
+//            if (member.getId().equals(id)) {
+//                return Optional.of(member);
+//            }
+//        }
+//        return Optional.empty();
     }
 
     // 중복 여부 체크
