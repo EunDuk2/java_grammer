@@ -154,7 +154,8 @@ public class C04StreamApi {
         Optional<String> opt2_2 = Optional.ofNullable("hello"); // 값이 있는 Optional 객체 생성
         Optional<String> opt3 = Optional.of("hello"); // 값이 있는 Optional 객체 생성
 
-
+        System.out.println(opt1);
+        System.out.println(opt1.get());
         // Optional 객체 처리 방법 4가지
         // 방법1. isPresent()로 확인 후에 get()
 //        if(opt2_1.isPresent()) {
@@ -171,7 +172,7 @@ public class C04StreamApi {
 //
 //        // 방법4. orElseThrow : 값이 있으면 있는 값 return, 없으면 지정된 예외 강제 발생 (가장 많이 사용)
 //        // 개발에서 사용자에게 적절한 메시지 전달 목적과 의도된 코드중단을 목표로 강제로 예외 발생시키는 경우는 매우 많음
-////        System.out.println(opt2_1.orElseThrow(() -> new RuntimeException("값이 없습니다."))); // 의도한 예외
+        System.out.println(opt2_1.orElseThrow(() -> new RuntimeException("값이 없습니다."))); // 의도한 예외
 ////        System.out.println(opt2_1.get()); // 의도하지 않은 예외 발생
 //
 //        // optional 객체 예시 1
